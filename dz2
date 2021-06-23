@@ -89,3 +89,6 @@ $oper = "sum";
 echo mathOperation($a,$b,$oper);
 ?>
 
+<?php
+echo "Текущий год: " . date('Y');
+?>
