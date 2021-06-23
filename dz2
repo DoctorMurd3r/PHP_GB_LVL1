@@ -46,3 +46,24 @@ switch ($a){
         echo "15";
 }
 ?>
+
+<?php
+function sum($a,$b){
+    return "Результат суммирования: " . $a + $b . "<br />";
+}
+function divide($a,$b){
+    return "Результат деления: " . $a / $b . "<br />";
+}
+function multiply($a,$b){
+    return "Результат умножения: " . $a * $b . "<br />";
+}
+function subtraction($a,$b){
+    return "Результат вычитания: " . $a - $b . "<br />";
+}
+$a = 2;
+$b = 5;
+echo sum($a,$b);
+echo divide($a,$b);
+echo multiply($a,$b);
+echo subtraction($a,$b);
+?>
