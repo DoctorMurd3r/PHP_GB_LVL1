@@ -92,3 +92,19 @@ echo mathOperation($a,$b,$oper);
 <?php
 echo "Текущий год: " . date('Y');
 ?>
+
+<?php
+function power($val, $pow){
+		if ($val == 0)
+		return 0;
+		elseif ($pow == 0)
+		return 1;
+		elseif ($pow < 0)
+		return power(1 / $val, -$pow);
+		else
+		return $val * power($val, $pow-1);
+}
+$a = 3;
+$b = 3;
+echo power($a,$b)
+?>
