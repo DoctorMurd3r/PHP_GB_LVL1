@@ -67,3 +67,25 @@ echo divide($a,$b);
 echo multiply($a,$b);
 echo subtraction($a,$b);
 ?>
+
+<?php
+function mathOperation($arg1, $arg2, $operation){
+    switch ($operation){
+        case "sum":
+            return "Сумма: " . $arg1 + $arg2; break;
+        case "divide":
+            return "Частное: " . $arg1 / $arg2; break;
+        case "multiply":
+            return "Произведение: " . $arg1 * $arg2; break;
+        case "minus":
+            return "Разность: " . $arg1 - $arg2; break;
+        default:
+            return "Что-то пошло не так";
+    }
+}
+$a = 10;
+$b = 3;
+$oper = "sum";
+echo mathOperation($a,$b,$oper);
+?>
+
