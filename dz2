@@ -10,7 +10,7 @@ elseif(($a>=0)&&($b<0)||(($a<0)&&($b>=0)))
 ?>
 
 <?php
-$a = 9;
+$a = rand(0,15);
 switch ($a){
     case 0:     
         echo "0, ";
