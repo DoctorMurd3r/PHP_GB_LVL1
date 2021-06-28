@@ -20,3 +20,10 @@ $cities=[
     ""
     ]
 ?>
+
+//5
+<?php
+$str = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...";
+$str = str_replace(" ","_",$str);
+echo $str;
+?>
