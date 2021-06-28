@@ -35,3 +35,25 @@ $str = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consecte
 $str = str_replace(" ","_",$str);
 echo $str;
 ?>
+
+//6
+<?php
+$array = [
+    "Один","Два","Три" => ["Десять","Двадцать","Тридцать"],
+    "Четыре","Пять"
+    ];
+
+echo "<ul>";
+foreach ($array as $item){
+    if (is_array($item)){
+        echo "<li>". $item . "<ul>";
+            foreach($item as $numb){
+                echo "<li>$numb</li>";
+            }echo "</ul></li>";
+    }else{
+        echo "<li>$item</li>";
+    }
+}
+echo "</ul>";
+
+?>
