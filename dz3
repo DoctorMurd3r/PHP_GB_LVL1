@@ -79,24 +79,35 @@ foreach ($cities as $nameObl => $item){
 
 //6
 <?php
-$array = [
-    "Один","Два","Три" => ["Десять","Двадцать","Тридцать"],
-    "Четыре","Пять"
+$cities=[
+    "Московская область" => [
+        "Москва","Зеленоград","Клин",
+        ],
+    "Ленинградская область" => [
+        "Санкт-Петербург", "Всеволожск", "Павловск", "Кронштадт",
+        ],
+    "Рязанская область" => [
+        "Рязань","Касимов","Скопин","Сасово",
+        ],
+    "Тюменская область" => [
+        "Тюмень","Тобольск","Ишим" => ["Поселок","Деревня","Город"],
+        ],
     ];
 
-echo "<ul>";
-foreach ($array as $item){
-    if (is_array($item)){
-        echo "<li>". $item . "<ul>";
-            foreach($item as $numb){
-                echo "<li>$numb</li>";
-            }echo "</ul></li>";
-    }else{
-        echo "<li>$item</li>";
+function menu($arr){
+    $ans[] = "<ul>";
+    foreach ($arr as $item => $val){
+    if (is_array($val)) {
+        $ans[] = "<li>" . $item . menu($val) . "</li>";
+    } else {
+        $ans[] = "<li>" . $val . "</li>";
     }
+    }
+    $ans[] = "</ul>";
+    return implode($ans);
 }
-echo "</ul>";
 
+echo menu($cities);
 ?>
 
 
