@@ -70,6 +70,13 @@ foreach ($arr as $nameObl){
 echo $str;
 ?>
 
+
+??
+foreach ($cities as $nameObl => $item){
+    echo "$nameObl " . mb_substr($nameObl,0,1) . " ";
+    }
+??
+
 //6
 <?php
 $array = [
