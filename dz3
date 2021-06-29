@@ -118,7 +118,7 @@ $cities=[
     ];
     
 foreach ($cities as $nameObl => $item){
-    for ($i = 0;$i < $arr = count($cities[$nameObl]);$i++){
+    for ($i = 0;$i < count($cities[$nameObl]);$i++){
         if(mb_substr($item[$i],0,1) == "К"){
         echo "$item[$i] ";
         }
