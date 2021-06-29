@@ -33,6 +33,40 @@ foreach ($cities as $nameObl => $city){
 <?php
 $str = "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...";
 $str = str_replace(" ","_",$str);
+
+
+
+//10?
+<?php
+$cities=[
+    "Деревня",
+    "Московская область" => [
+        "Москва","Зеленоград","Клин",
+        ],
+    "Ленинградская область" => [
+        "Санкт-Петербург", "Всеволожск", "Павловск", "Кронштадт",
+        ],
+    "Рязанская область" => [
+        "Рязань","Касимов","Скопин","Сасово"=>["сас","ово"],
+        ],
+    "Тюменская область" => [
+        "Тюмень","Тобольск","Ишим"
+        ],
+    "Поселок"
+    ];
+    
+    function wow($arr){
+foreach ($arr as $nameObl){
+    if (is_array($nameObl)){
+        echo wow($nameObl);
+    }
+    else{
+    echo "$nameObl " . mb_substr($nameObl,0,1);
+    }
+    }
+    }
+    echo wow($cities);
+?>
 echo $str;
 ?>
 
