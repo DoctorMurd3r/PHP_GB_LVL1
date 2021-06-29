@@ -126,3 +126,18 @@ foreach ($cities as $nameObl => $item){
     }
 
 ?>
+
+// ?? 
+function menu($arr){
+    $i = 0;
+    foreach ($arr as $item => $val){
+    if(is_array($val)){
+        echo "$item" . menu($val);
+    }
+    else{
+    echo " $val ";
+    }
+    $i++;
+    }  }
+echo menu($cities);
+?>
