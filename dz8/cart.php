@@ -28,11 +28,16 @@ $sessionId = session_id();
 $finalSum = 0;
 //$result = mysqli_query($linkDB, "SELECT * FROM products ORDER BY product_view DESC"); 
 //CONST IMG_SRC = 'images/';
-  
+ 
+
 if(!empty($_GET['add'])){
     $idProd = (int)$_GET['add'];
-    mysqli_query($linkDB, "INSERT INTO cart (product_id, quantity, session_id)
-    VALUES($idProd, 1, '$sessionId') ON DUPLICATE KEY UPDATE quantity = quantity + 1");
+    $Price = mysqli_query($linkDB,"SELECT product_price from products WHERE id = '$idProd'");
+    $getPrice = mysqli_fetch_row($Price);
+    $getPrice = (int)$getPrice[0];
+    var_dump($getPrice);
+    mysqli_query($linkDB, "INSERT INTO cart (product_id, quantity, session_id, price)
+    VALUES($idProd, 1, '$sessionId','$getPrice') ON DUPLICATE KEY UPDATE quantity = quantity + 1");
 }   
 
 $select = mysqli_query($linkDB, "SELECT * FROM cart 
