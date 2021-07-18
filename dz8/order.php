@@ -19,7 +19,7 @@ session_start();
  </head>
  <body> 
      <h2>Заказ</h2>
-<a href='catalog.php'>Обратно в корзину</a>
+<a href='cart.php'>Обратно в корзину</a>
 
 <div class="container">     
      <?php
@@ -27,23 +27,32 @@ session_start();
 $linkDB = mysqli_connect("localhost", "root", "root", "db_products") or die("Не удалось подключить базу данных");
 //$sessionId = session_id();
 //$finalSum = 0;
-$sessionId = $_GET['sess'];    
+
+if(!empty($_GET['sess'])){
+
+//защита
+$sessId = $_GET['sess'];    
+var_dump($sessId);
+$abc = '300';
+// INSERT INTO order_items (order_id, product_id, qty, price) 
+//     SELECT 10, product_id, qty, price FROM cart 
+//     INNER JOIN products ON products.id = cart.product_id
+//     WHERE session_id = 1;
+mysqli_query($linkDB, "INSERT INTO order_items (order_id, product_id, quantity, price)
+    SELECT cart.session_id, product_id, quantity, price 
+    FROM cart 
     
-mysqli_query($linkDB, "INSERT INTO (tab order)order_items (order_id, product_id, quantity, price)
-    SELECT $orderId, cart.product_id, cart.quantity, products.price FROM cart
-        INNER JOIN products ON products.id = cart.product_id
-        WHERE user_id = 1; or session_id = 1
-")    
-    
+    WHERE `session_id` = '$sessId'");    
+
+}
+
+//insert into appointment (col1, col2, col3, ...) values
+//($id,(select doctorid from doctors where doctorName like '$docName' ), $date,$symptoms,(select patientid from patient where patientFName like '$nameOfUser'),$time)";
     
 //удаление  из корзины
 //   DELETE FORM cart WHERE user_id = 1; 
 //  
-    
-    
-//$result = mysqli_query($linkDB, "SELECT * FROM products ORDER BY product_view DESC"); 
-//CONST IMG_SRC = 'images/';
-  
+
     
     
 ?>
@@ -53,17 +62,8 @@ mysqli_query($linkDB, "INSERT INTO (tab order)order_items (order_id, product_id,
     <input type="text" name="cart_name" required> Ваше имя<br>
     <input type="text" name="cart_phone" required> телефон<br>
     <input type="text" name="cart_address" required> адрес<br>
-    <input type="submit" name="change_product" value="Изменить продукт">
+    <input type="submit" name="change_product" value="aaa">
 </form>
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     <?php
