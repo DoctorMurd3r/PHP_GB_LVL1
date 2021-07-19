@@ -37,7 +37,7 @@ if(!empty($_GET['add'])){
     $getPrice = (int)$getPrice[0];
     var_dump($getPrice);
     mysqli_query($linkDB, "INSERT INTO cart (product_id, quantity, session_id, price)
-    VALUES($idProd, 1, '$sessionId','$getPrice') ON DUPLICATE KEY UPDATE quantity = quantity + 1");
+    VALUES($idProd, 1, '$sessionId',$getPrice) ON DUPLICATE KEY UPDATE quantity = quantity + 1");
 }   
 
 $select = mysqli_query($linkDB, "SELECT * FROM cart 
