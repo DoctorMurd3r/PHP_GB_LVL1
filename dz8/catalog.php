@@ -85,11 +85,13 @@ if(!isset($isProducts)) {
      echo "Список продуктов пуст";
 }
     
-///////////////////////////////////////////////
+//////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////
 
 foreach($result as $item){
-         echo "<div class='product'>
+         echo "
+         <div class='product'>
+         
          {$item['product_name']}<br>Просмотров: {$item['product_view']} 
          <a href=product.php?id={$item['id']}><img src=" . "{$item['product_image']}></a>Цена: {$item['product_price']} Р
          <a href='cart.php?add={$item['id']}'>Добавить в корзину</a>
